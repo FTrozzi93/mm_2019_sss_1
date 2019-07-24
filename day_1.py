@@ -61,7 +61,25 @@ def calculate_tail_correction(box_length, cutoff, number_particles):
 
 def minimum_image_distance(r_i, r_j, box_length):
     # This function computes the minimum image distance between two particles
+"""
+Compute the minimum image distance between two particles.
 
+Parameters
+----------
+r_i : array
+    Coordinates of particle "i".
+r_j : array
+    Coordinates of particle "j".
+box_length: float
+    Length of box.
+
+Returns
+-------
+rij2 : float
+    The square of the distance between two particles.
+
+
+"""
     rij = r_i - r_j
     rij = rij - box_length * np.round(rij / box_length)
     rij2 = np.dot(rij, rij)
